@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Hola, soy Esther</h1>  
+      <h1>Hola, soy Amanda</h1>  
 
       <Tarjeta src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsK7ox6ZUo_5spLsRJTAh2idvizo7QLqoJ-w&s" nombre="Esther" edad="37" />
       <Tarjeta src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPVO4LSlzzN3vjB0C4LiWsqRG-iYFpJEvDHQ&s" nombre="Rossana" edad="46" />
