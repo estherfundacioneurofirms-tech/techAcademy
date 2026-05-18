@@ -6,7 +6,7 @@ function Tarjeta({src, nombre, edad}) {
             <Avatar src={src} nombre={nombre}/>
             <p>Mi nombre es: {nombre}</p>
             <p>Mi edad es: {edad} </p>
-            <p> "Estas en una nueva juventud"</p>
+            <p>{edad > 40 ? "Estas en una nueva juventud" : "" }</p>
         </div>
     )
 }
