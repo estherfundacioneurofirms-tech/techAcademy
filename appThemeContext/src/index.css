@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    min-height: 100vh;
+    background-color: antiquewhite;
+    color: black;
+}
+
+.app.dark {
+    background-color: black;
+    color: white;
+}
+
+header,
+main{
+    padding: 20px;
+
+}
+
+header {
+    background-color: #eeeeee;
+}
+
+header.dark {
+    background-color: #222;
+}
+
+main { 
+    background-color: white;
+    min-height: 250px;
+}
+main.dark {
+    background-color: #222;
+}
+
+button {
+    margin: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #222;
+    color: white;
+}
+
+.dark-button {
+    background-color: white;
+    color: #222;
+}
