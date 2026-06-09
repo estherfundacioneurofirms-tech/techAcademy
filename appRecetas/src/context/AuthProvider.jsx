@@ -2,17 +2,19 @@ import { useState } from "react";
 import { loginUser } from "../api/authApi";
 import { AuthContext } from "./authContext";
 
-function AuthProvider ({ children }) {
+export function AuthProvider ({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
 
     //Aqui declaramos constante que usaremos para saber si esta autenticado o no pasando el token si este no es
     //null estará autenticado
+    const [loading, setLoading] = useState(true);
 
     const isAuthenticated = Boolean(token);
 
     async function login(username, password) {
         const data = await loginUser(username, password)
+ 
 
         setToken(data.accessToken)
         setUser({
@@ -26,10 +28,9 @@ function AuthProvider ({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{user, token, isAuthenticated, login}}>
+        <AuthContext.Provider value={{user, token, loading, isAuthenticated, login}}>
             {children}
         </AuthContext.Provider>
     )
 
 }
-export default AuthProvider
