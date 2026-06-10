@@ -16,7 +16,6 @@ export function Navbar() {
             </>
 
             
-
             <div className="navbar-session">
                 {!isAuthenticated ? (
                     <Link to="/login">Login</Link>
@@ -29,6 +28,4 @@ export function Navbar() {
             </div>
         </nav>
     )
-
-
 }

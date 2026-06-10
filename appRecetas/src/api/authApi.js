@@ -1,11 +1,8 @@
 const API_URL = 'https://dummyjson.com/auth'
-
 export async function loginUser(username, password) {
     //Esta función sirve para realizar la petición al backend de inicio de sesion
     //React NO comprueba la contraseña --  React solo envia los datos
     // quien valida los datos es el backend y nos devuelve si son correctos o no
-
-
     const response = await fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
@@ -43,8 +40,6 @@ export async function getCurrentUser(token) {
     if(!response.ok) {
         throw new Error ('No se ha podido obtener el usuario');
     }
-
     //si todo ok
-    return response.json();
-    
+    return response.json();   
 }
