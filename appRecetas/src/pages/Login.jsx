@@ -27,6 +27,7 @@ export function Login() {
         try {
             //vamos a pedirle al login que hemos traido del contexto que haga login
             //si va bien guardara el token usuario y cuando caduca
+            await login(username, password)
 
             //Despues del login le mandamos a la pagina de profile
             navigate('/profile');
@@ -46,7 +47,7 @@ export function Login() {
             <section className="card">
                 <h1>Iniciar Sesión</h1>
                 <p>
-                    usá credenciales de prueba para entrar en las zonas privadas.
+                    usa credenciales de prueba para entrar en las zonas privadas.
                     La sesión caduca automaticamente a los 5 min
                 </p>
 

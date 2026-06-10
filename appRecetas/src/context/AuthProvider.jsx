@@ -52,7 +52,7 @@ export function AuthProvider ({ children }) {
         setUser({
             id: data.id,
             username: data.username,
-            firstName:data.firstName,
+            firstName: data.firstName,
             lastName: data.lastName,
             email: data.email,
             image: data.image,
@@ -90,8 +90,9 @@ export function AuthProvider ({ children }) {
             } finally {
                 setLoading(false);
             }
-            loadUser();
+            
         }
+        loadUser();
 
     }, [token, logout])
 
@@ -135,7 +136,7 @@ export function AuthProvider ({ children }) {
     }, [token, logout])
 
     return (
-        <AuthContext.Provider value={{user, token, loading, isAuthenticated, login}}>
+        <AuthContext.Provider value={{ user, token, loading, isAuthenticated, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

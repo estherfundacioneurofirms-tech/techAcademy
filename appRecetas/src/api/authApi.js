@@ -1,45 +1,47 @@
 const API_URL = 'https://dummyjson.com/auth'
+
 export async function loginUser(username, password) {
-    //Esta función sirve para realizar la petición al backend de inicio de sesion
-    //React NO comprueba la contraseña --  React solo envia los datos
-    // quien valida los datos es el backend y nos devuelve si son correctos o no
-    const response = await fetch(`${API_URL}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-        password,
-        //le pedimos a DummyJSON que el token expire cada 5 min
-        expiresInMins:5,
-      }),      
-    })
+  // Esta función representa la llamada al backend para iniciar sesión.
+  // React NO comprueba la contraseña: React solo envía los datos.
+  // Quien valida si el usuario y la contraseña son correctos es la API.
+  const response = await fetch(`${API_URL}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+      password,
 
-    // si la API nos responde un error 
+      // Le pedimos a DummyJSON que el token dure 5 minutos.
+      // Esto nos viene genial para clase porque se puede ver cómo caduca la sesión.
+      expiresInMins: 5,
+    }),
+  })
 
-    if(!response.ok) {
-        throw new Error('Usuario o contraseña incorrecto');
-    }
+  // Si la API responde con error, normalmente será porque las credenciales no son correctas.
+  if (!response.ok) {
+    throw new Error('Usuario o contraseña incorrectos')
+  }
 
-    //si nos devuelve que es todo ok nos devolveria un accessToken 
-    return response.json();
+  // Si todo va bien, la API nos devuelve los datos del usuario y un accessToken.
+  return response.json()
 }
 
 export async function getCurrentUser(token) {
-    //esta funcion sirve para preguntar a la API "con este token que usuario soy?" 
-    //El token se envia en los headers o cabecera de la Authorización 
+  // Esta función pregunta a la API: "con este token, ¿quién soy?".
+  // El token se envía en la cabecera Authorization.
+  const response = await fetch(`${API_URL}/me`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
 
-    const response = await fetch(`${API_URL}/me`, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    })
+  if (!response.ok) {
+    throw new Error('No se pudo obtener el usuario')
+  }
 
-    if(!response.ok) {
-        throw new Error ('No se ha podido obtener el usuario');
-    }
-    //si todo ok
-    return response.json();   
-}
+  // Si el token es válido, la API devuelve los datos del usuario autenticado.
+  return response.json()
+} 
