@@ -1,0 +1,48 @@
+.user-ticket-avatar{
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  
+
+}
+
+.user-ticket{
+  background-color: rgb(249, 222, 187);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px auto;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  max-width: 50%;
+}
+.user-form {
+    border: 1px solid #000000;;
+    background-color: #d7fad7;
+    padding: 20px;
+    margin: 16px auto;
+    text-align: center;
+    max-width: 50%;
+}
+
+.user-form form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.user-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.user-form button,
+.user-form input {
+  padding:20px;
+
+}
+
